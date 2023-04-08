@@ -19,4 +19,8 @@ export class WorksService {
   async findWithRank(): Promise<Works[]> {
     return this.worksModel.find({ rank: { $gt: 0 } }).sort({ rank: 1 }).exec();
   }
+
+  async findOne(id: string): Promise<Works> {
+    return this.worksModel.findById(id).exec();
+  }
 }

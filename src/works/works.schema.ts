@@ -15,6 +15,9 @@ export class Works {
   smallImg: string;
 
   @Prop()
+  link: string;
+
+  @Prop()
   categories: string[];
 
   @Prop({ default: 0 })
@@ -22,6 +25,9 @@ export class Works {
 
   @Prop({ default: Date.now })
   date: Date;
+
+  @Prop({ type: [{ title: String, subheaders: [{ title: String, description: String, images: [String] }] }] })
+  headers: { title: string; subheaders: { title: string; description: string; images: string[] }[] }[];
 }
 
 export const WorksSchema = SchemaFactory.createForClass(Works);
