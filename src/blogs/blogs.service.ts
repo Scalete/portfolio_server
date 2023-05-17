@@ -16,7 +16,7 @@ export class BlogsService {
     return this.blogsModel.find().exec();
   }
 
-  async findWithRank(): Promise<Blogs[]> {
-    return this.blogsModel.find({ rank: { $gt: 0 } }).sort({ date: -1 }).exec();
+  async findOne(id: string): Promise<Blogs> {
+    return this.blogsModel.findById(id).exec();
   }
 }

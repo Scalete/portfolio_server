@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from "@nestjs/common";
 import { Blogs } from './blogs.schema';
 import { BlogsService } from './blogs.service';
 
@@ -16,8 +16,8 @@ export class BlogsController {
     return this.blogsService.findAll();
   }
 
-  @Get('ranked')
-  async findWithRank(): Promise<Blogs[]> {
-    return this.blogsService.findWithRank();
+  @Get(':id')
+  async findById(@Param('id') id: string): Promise<Blogs> {
+    return this.blogsService.findOne(id);
   }
 }
