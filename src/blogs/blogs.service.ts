@@ -19,4 +19,8 @@ export class BlogsService {
   async findOne(id: string): Promise<Blogs> {
     return this.blogsModel.findById(id).exec();
   }
+
+  async findLastTwoPosts(): Promise<Blogs[]> {
+    return this.blogsModel.find().sort({ date: -1 }).limit(2).exec();
+  }
 }

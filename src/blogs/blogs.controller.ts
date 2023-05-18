@@ -20,4 +20,9 @@ export class BlogsController {
   async findById(@Param('id') id: string): Promise<Blogs> {
     return this.blogsService.findOne(id);
   }
+
+  @Get('recent/two')
+  async findLastTwoPosts(): Promise<Blogs[]> {
+    return this.blogsService.findLastTwoPosts();
+  }
 }
