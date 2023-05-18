@@ -26,8 +26,8 @@ export class Works {
   @Prop({ default: Date.now })
   date: Date;
 
-  @Prop({ type: [{ title: String, subheaders: [{ title: String, description: String, images: [String] }] }] })
-  headers: { title: string; subheaders: { title: string; description: string; images: string[] }[] }[];
+  @Prop({ type: [{ title: String, description:String, subheaders: [{ title: String, description: String, images: [String] }] }] })
+  headers: { title: string; description: string; subheaders: { title: string; description: string; images: string[] }[] }[];
 }
 
 export const WorksSchema = SchemaFactory.createForClass(Works);
